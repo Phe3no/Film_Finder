@@ -1,0 +1,298 @@
+@import "constants";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Catamaran";
+}
+
+#wrapper {
+  display: grid;
+  background-color: $black;
+  grid-template-columns: 1fr;
+  grid-template-rows: 180px auto 160px;
+  grid-template-areas: "hs" "ms" "fs";
+}
+
+@media only screen and (min-width: 600px) {
+  #wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px auto 100px;
+    grid-template-areas: "hm" "mm" "fm";
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 60px auto 100px;
+    grid-template-areas: "h" "n" "m" "f";
+  }
+}
+
+//HEADER-AREA----------------------------------------------------------------------------
+#header-area {
+  grid-area: hs;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: $black;
+  color: $white;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  position: fixed;
+  z-index: 1;
+  & #menu-brand-area {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    & #hamburger-menu {
+      width: 60px;
+      background-image: url(../images/hamburger_eee.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 70%;
+      cursor: pointer;
+    }
+    & #brand-logo {
+      width: calc(100% - 80px);
+      max-height: 60px;
+      height: 60px;
+      line-height: 60px;
+      & a {
+        color: $white;
+        text-decoration: none;
+        & h1 {
+          display: inline-block;
+          padding-left: 8px;
+          height: 60px;
+          & span {
+            color: $phe3no;
+            font-size: 26px;
+          }
+        }
+      }
+    }
+  }
+  & #header-title {
+    text-align: center;
+    font-size: 32px;
+    background-color: $black;
+  }
+  & #header-search-area {
+    text-align: center;
+    height: 60px;
+    background-color: $black;
+    border-bottom: 1px solid $phe3no;
+    & #header-search-bar {
+      white-space: nowrap;
+      padding: 8px;
+      & label {
+        margin-right: 5px;
+      }
+      & input {
+        padding: 8px;
+        border: 1px solid $gray;
+        border-radius: 5px;
+        &:focus {
+          outline: 1px solid $phe3no;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #header-area {
+    grid-area: hm;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "mba ht ."
+      "hsa hsa hsa";
+    & #menu-brand-area {
+      grid-area: mba;
+      & #header-title {
+        grid-area: ht;
+      }
+    }
+    & #header-search-area {
+      grid-area: hsa;
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #header-area {
+    grid-area: h;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "mba ht hsa";
+
+    & #menu-brand-area {
+      grid-area: mba;
+      & #hamburger-menu {
+        display: none;
+      }
+      & #header-title {
+        grid-area: ht;
+      }
+    }
+    & #header-search-area {
+      grid-area: hsa;
+      border-bottom: none;
+    }
+  }
+}
+
+//NAV-AREA----------------------------------------------------------------
+#nav-area {
+  width: 0%;
+  background-color: $black;
+  color: $white;
+  height: 350px;
+  line-height: 50px;
+  border-bottom-right-radius: 10px;
+  transition: width 400ms linear;
+  position: fixed;
+  top: 180px;
+  z-index: 1;
+  & ul {
+    overflow: hidden;
+    list-style-type: none;
+    & li {
+      display: flex;
+      flex-flow: row no-wrap;
+      border-bottom: 1px solid $phe3no;
+      white-space: nowrap;
+      & input {
+        margin-left: 8px;
+        accent-color: $phe3no;
+        cursor: pointer;
+      }
+      & label {
+        display: inline-block;
+        cursor: pointer;
+        padding: 8px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+#wrapper .nav-area-show {
+  width: 200px;
+  transition: width 400ms linear;
+}
+
+@media only screen and (min-width: 600px) {
+  #nav-area {
+    width: 0%;
+    top: 120px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #nav-area {
+    grid-area: n;
+    width: 100%;
+    border-bottom-right-radius: 0;
+    border-bottom: 1px solid $phe3no;
+    height: 60px;
+    line-height: 60px;
+    top: 60px;
+    & #nav-area-list {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 16px;
+      & li {
+        border-bottom: none;
+        & label {
+          padding: 10px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+//MAIN-AREA---------------------------------------------------------------
+#main-area {
+  grid-area: ms;
+  background-color: $black;
+  margin: auto;
+  min-height: 100vh;
+  z-index: 0;
+  & #movies {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding-top: 15px;
+  }
+  & li {
+    padding: 15px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #main-area {
+    grid-area: mm;
+    & li {
+      padding: 8px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #main-area {
+    width: 80%;
+    grid-area: m;
+  }
+}
+//FOOTER-AREA------------------------------------------------------------------
+#footer-area {
+  grid-area: fs;
+  border-top: 1px solid $phe3no;
+  color: $white;
+  line-height: 25px;
+  text-align: center;
+  div {
+    padding: 0 30px;
+    & h2 {
+      padding: 8px;
+    }
+    & p {
+      font-size: 12px;
+      & span {
+        color: $phe3no;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #footer-area {
+    grid-area: fm;
+    div {
+      & p {
+        display: inline;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #footer-area {
+    grid-area: f;
+  }
+}

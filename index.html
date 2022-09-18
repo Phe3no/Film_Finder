@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="javascript/data.js"></script>
+    <script defer src="javascript/script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;900&family=Cormorant+Garamond:wght@300&family=Tapestry&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset-style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Film finder</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="header-area">
+        <div id="menu-brand-area">
+          <div id="hamburger-menu"></div>
+          <div id="brand-logo">
+            <a href=""><h1>phe<span>3</span>no</h1></a>
+          </div>
+        </div>
+        <h1 id="header-title">film finder</h1>
+        <div id="header-search-area">
+          <span id="header-search-bar">
+            <label for="">find film:</label>
+            <input
+              id="header-input-bar"
+              type="text"
+              name="header-input"
+              placeholder="only lowercase please"
+            />
+          </span>
+        </div>
+      </header>
+
+      <nav id="nav-area">
+        <ul id="nav-area-list">
+          <li id="ffg-mi1" class="ffg-menuitem">
+            <input
+              id="ffg-btn1"
+              type="radio"
+              name="film-filter-group"
+              value=""
+            />
+            <label id="ffg-l1" for="ffg-btn1">Movies, 2014 or newer</label>
+          </li>
+          <li id="ffg-mi2" class="ffg-menuitem">
+            <input
+              id="ffg-btn2"
+              type="radio"
+              name="film-filter-group"
+              value=""
+            />
+            <label id="ffg-l2" for="ffg-btn2">Avenger Movies</label>
+          </li>
+          <li id="ffg-mi3" class="ffg-menuitem">
+            <input
+              id="ffg-btn3"
+              type="radio"
+              name="film-filter-group"
+              value=""
+            />
+            <label id="ffg-l3" for="ffg-btn3">X-Men movies</label>
+          </li>
+          <li id="ffg-mi4" class="ffg-menuitem">
+            <input
+              id="ffg-btn4"
+              type="radio"
+              name="film-filter-group"
+              value=""
+            />
+            <label id="ffg-l4" for="ffg-btn4">Princess movies</label>
+          </li>
+          <li id="ffg-mi5" class="ffg-menuitem">
+            <input
+              id="ffg-btn5"
+              type="radio"
+              name="film-filter-group"
+              value=""
+            />
+            <label id="ffg-l5" for="ffg-btn5">Batman movies</label>
+          </li>
+        </ul>
+      </nav>
+
+      <main id="main-area">
+        <ul id="movies"></ul>
+      </main>
+
+      <footer id="footer-area">
+        <div>
+          <h2>Extra features:</h2>
+          <p><span>hamburger</span> menu...</p>
+          <p><span>lowercase</span> search-string...</p>
+          <p><span>smooth</span> scroll-up when filter is used...</p>
+          <p>
+            <span> uncheck filter button</span> on image click or input-field
+            change...
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
